@@ -17,7 +17,7 @@ args = vars(ap.parse_args())
 
 # initialize the URL that contains the captcha images that we will
 # be downloading along with the total number of images downloaded
-# thus far
+# so far
 url = "https://www.e-zpassny.com/vector/jcaptcha.do"
 total = 0
 

@@ -16,8 +16,7 @@ ap.add_argument("-a", "--annot", required=True,
 	help="path to output directory of annotations")
 args = vars(ap.parse_args())
 
-# grab the image paths then initialize the dictionary of character
-# counts
+# grab the image paths then initialize the dictionary of character counts
 imagePaths = list(paths.list_images(args["input"]))
 counts = {}
 
