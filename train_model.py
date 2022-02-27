@@ -6,7 +6,6 @@ __version__ = "0.1"
 # USAGE
 # python train_model.py --dataset dataset --model output/lenet.hdf5
 
-# import the necessary packages
 from sklearn.preprocessing import LabelBinarizer
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
