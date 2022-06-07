@@ -40,12 +40,12 @@ class Perceptron:
                     # update the weight matrix
                     self.W += -self.alpha * error * x
 
-    def predict(self, X, addBias=True):
+    def predict(self, X, add_bias=True):
         # ensure our input is a matrix
         X = np.atleast_2d(X)
 
         # check to see if the bias column should be added
-        if addBias:
+        if add_bias:
             # insert a column of 1's as the last entry in the feature
             # matrix (bias)
             X = np.c_[X, np.ones((X.shape[0]))]
