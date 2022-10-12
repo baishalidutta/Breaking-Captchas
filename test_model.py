@@ -30,16 +30,16 @@ print("[INFO] loading pre-trained network...")
 model = load_model(args["model"])
 
 # randomy sample a few of the input images
-imagePaths = list(paths.list_images(args["input"]))
-imagePaths = np.random.choice(imagePaths, size=(10,),
+image_paths = list(paths.list_images(args["input"]))
+image_paths = np.random.choice(image_paths, size=(10,),
                               replace=False)
 
 # loop over the image paths
-for imagePath in imagePaths:
+for image_path in image_paths:
     # load the image and convert it to grayscale, then pad the image
     # to ensure digits caught only the border of the image are
     # retained
-    image = cv2.imread(imagePath)
+    image = cv2.imread(image_path)
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     gray = cv2.copyMakeBorder(gray, 20, 20, 20, 20,
                               cv2.BORDER_REPLICATE)
