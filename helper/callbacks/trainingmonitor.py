@@ -11,13 +11,13 @@ import os
 
 
 class TrainingMonitor(BaseLogger):
-    def __init__(self, figPath, jsonPath=None, startAt=0):
+    def __init__(self, fig_path, json_path=None, start_at=0):
         # store the output path for the figure, the path to the JSON
         # serialized file, and the starting epoch
         super(TrainingMonitor, self).__init__()
-        self.figPath = figPath
-        self.jsonPath = jsonPath
-        self.startAt = startAt
+        self.fig_path = fig_path
+        self.json_path = json_path
+        self.start_at = start_at
 
     def on_train_begin(self, logs={}):
         # initialize the history dictionary
