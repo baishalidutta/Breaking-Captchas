@@ -17,15 +17,15 @@ class LeNet:
 	def build(width, height, depth, classes):
 		# initialize the model
 		model = Sequential()
-		inputShape = (height, width, depth)
+		input_shape = (height, width, depth)
 
 		# if we are using "channels first", update the input shape
 		if K.image_data_format() == "channels_first":
-			inputShape = (depth, height, width)
+			input_shape = (depth, height, width)
 
 		# first set of CONV => RELU => POOL layers
 		model.add(Conv2D(20, (5, 5), padding="same",
-			input_shape=inputShape))
+			input_shape=input_shape))
 		model.add(Activation("relu"))
 		model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
 
