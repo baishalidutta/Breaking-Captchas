@@ -20,8 +20,8 @@ class MiniVGGNet:
 		# initialize the model along with the input shape to be
 		# "channels last" and the channels dimension itself
 		model = Sequential()
-		inputShape = (height, width, depth)
-		chanDim = -1
+		input_shape = (height, width, depth)
+		chan_dim = -1
 
 		# if we are using "channels first", update the input shape
 		# and channels dimension
@@ -31,9 +31,9 @@ class MiniVGGNet:
 
 		# first CONV => RELU => CONV => RELU => POOL layer set
 		model.add(Conv2D(32, (3, 3), padding="same",
-			input_shape=inputShape))
+			input_shape=input_shape))
 		model.add(Activation("relu"))
-		model.add(BatchNormalization(axis=chanDim))
+		model.add(BatchNormalization(axis=chan_dim))
 		model.add(Conv2D(32, (3, 3), padding="same"))
 		model.add(Activation("relu"))
 		model.add(BatchNormalization(axis=chanDim))
@@ -43,10 +43,10 @@ class MiniVGGNet:
 		# second CONV => RELU => CONV => RELU => POOL layer set
 		model.add(Conv2D(64, (3, 3), padding="same"))
 		model.add(Activation("relu"))
-		model.add(BatchNormalization(axis=chanDim))
+		model.add(BatchNormalization(axis=chan_dim))
 		model.add(Conv2D(64, (3, 3), padding="same"))
 		model.add(Activation("relu"))
-		model.add(BatchNormalization(axis=chanDim))
+		model.add(BatchNormalization(axis=chan_dim))
 		model.add(MaxPooling2D(pool_size=(2, 2)))
 		model.add(Dropout(0.25))
 
