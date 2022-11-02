@@ -129,14 +129,14 @@ class NeuralNetwork:
             # place
             self.W[layer] += -self.alpha * A[layer].T.dot(D[layer])
 
-    def predict(self, X, addBias=True):
+    def predict(self, X, add_bias=True):
         # initialize the output prediction as the input features -- this
         # value will be (forward) propagated through the network to
         # obtain the final prediction
         p = np.atleast_2d(X)
 
         # check to see if the bias column should be added
-        if addBias:
+        if add_bias:
             # insert a column of 1's as the last entry in the feature
             # matrix (bias)
             p = np.c_[p, np.ones((p.shape[0]))]
@@ -157,7 +157,7 @@ class NeuralNetwork:
         # make predictions for the input data points then compute
         # the loss
         targets = np.atleast_2d(targets)
-        predictions = self.predict(X, addBias=False)
+        predictions = self.predict(X, add_bias=False)
         loss = 0.5 * np.sum((predictions - targets) ** 2)
 
         # return the loss
