@@ -29,7 +29,7 @@ args = vars(ap.parse_args())
 print("[INFO] loading pre-trained network...")
 model = load_model(args["model"])
 
-# randomy sample a few of the input images
+# random sample a few of the input images
 image_paths = list(paths.list_images(args["input"]))
 image_paths = np.random.choice(image_paths, size=(10,),
                               replace=False)
