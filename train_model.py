@@ -33,9 +33,9 @@ data = []
 labels = []
 
 # loop over the input images
-for imagePath in paths.list_images(args["dataset"]):
+for image_path in paths.list_images(args["dataset"]):
 	# load the image, pre-process it, and store it in the data list
-	image = cv2.imread(imagePath)
+	image = cv2.imread(image_path)
 	image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 	image = preprocess(image, 28, 28)
 	image = img_to_array(image)
@@ -43,7 +43,7 @@ for imagePath in paths.list_images(args["dataset"]):
 
 	# extract the class label from the image path and update the
 	# labels list
-	label = imagePath.split(os.path.sep)[-2]
+	label = image_path.split(os.path.sep)[-2]
 	labels.append(label)
 
 # scale the raw pixel intensities to the range [0, 1]
