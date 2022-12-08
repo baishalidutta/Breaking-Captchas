@@ -19,12 +19,12 @@ def preprocess(image, width, height):
 
 	# determine the padding values for the width and height to
 	# obtain the target dimensions
-	padW = int((width - image.shape[1]) / 2.0)
-	padH = int((height - image.shape[0]) / 2.0)
+	pad_w = int((width - image.shape[1]) / 2.0)
+	pad_h = int((height - image.shape[0]) / 2.0)
 
 	# pad the image then apply one more resizing to handle any
 	# rounding issues
-	image = cv2.copyMakeBorder(image, padH, padH, padW, padW,
+	image = cv2.copyMakeBorder(image, pad_h, pad_h, pad_w, pad_w,
 		cv2.BORDER_REPLICATE)
 	image = cv2.resize(image, (width, height))
 
